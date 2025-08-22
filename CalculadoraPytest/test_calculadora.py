@@ -64,15 +64,24 @@ def test_raiz_quadrada_numero_negativo_lanca_erro(calc):
         calc.raiz_quadrada(-16)
 
 # --- (entradas inválidas) ---
+@pytest.mark.parametrize("metodo", [
+    "soma",
+    "subtracao",
+    "multiplicacao",
+    "divisao",
+    "potencia"
+])
 @pytest.mark.parametrize("a, b", [
     (10, "a"),
     ("x", 5),
     (10, [1, 2])
 ])
-def test_operacao_com_nao_numeros_lanca_erro(calc, a, b):
+def test_operacoes_com_nao_numeros_lancam_erro(calc, metodo, a, b):
+    """
+    Testa se todos os métodos de operação lançam TypeError com entradas inválidas.
+    """
+    # A função getattr() pega o método da classe a partir do seu nome em string
+    operacao_a_testar = getattr(calc, metodo)
+    
     with pytest.raises(TypeError, match="Todos os operandos devem ser números."):
-        calc.soma(a,b)
-        calc.subtracao(a,b)
-        calc.multiplicacao(a,b)
-        calc.divisao(a,b)
-        calc.potencia(a,b)   
+        operacao_a_testar(a, b) 
