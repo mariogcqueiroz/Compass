@@ -1,0 +1,21 @@
+{
+  "carrinho_valido": {
+    "produtos": [
+      {
+        "idProduto": "ID_PRODUTO_EXEMPLO",
+        "quantidade": 1
+      }
+    ]
+  },
+  "carrinho_duplicado": {
+    "produtos": [
+      {
+        "idProduto": "ID_PRODUTO_EXEMPLO",
+        "quantidade": 2
+      }
+    ]
+  },
+  "carrinho_vazio": {
+    "produtos": []
+  }
+}
