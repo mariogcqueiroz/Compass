@@ -1,62 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.9.6 on darwin)" generated="2025-09-17T15:21:21.321282" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.9.6 on darwin)" generated="2025-09-17T15:49:42.135671" rpa="false" schemaversion="5">
 <suite id="s1" name="Signup" source="/Users/mario/Documents/GitHub/Compass/QAx/apps/mark85/tests/signup.robot">
 <test id="s1-t1" name="Deve poder cadastrar um novo usuário" line="6">
 <kw name="New Browser" owner="Browser">
-<msg time="2025-09-17T15:21:21.402431" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/mario/Documents/GitHub/Compass/QAx/apps/mark85/tests/reports/browser/traces/temp/b885863b-38c6-4a38-ae1d-39def40a296a"}</msg>
-<msg time="2025-09-17T15:21:21.414720" level="INFO">Starting Browser process /Users/mario/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js using at 127.0.0.1:54685</msg>
-<msg time="2025-09-17T15:21:23.386201" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/mario/Documents/GitHub/Compass/QAx/apps/mark85/tests/reports/browser/traces/temp/b885863b-38c6-4a38-ae1d-39def40a296a"}</msg>
+<msg time="2025-09-17T15:49:42.227836" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/mario/Documents/GitHub/Compass/QAx/apps/mark85/tests/reports/browser/traces/temp/6bdcc443-b238-4399-a9c1-834b7ec87664"}</msg>
+<msg time="2025-09-17T15:49:42.240425" level="INFO">Starting Browser process /Users/mario/Library/Python/3.9/lib/python/site-packages/Browser/wrapper/index.js using at 127.0.0.1:55323</msg>
+<msg time="2025-09-17T15:49:44.278598" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/mario/Documents/GitHub/Compass/QAx/apps/mark85/tests/reports/browser/traces/temp/6bdcc443-b238-4399-a9c1-834b7ec87664"}</msg>
 <arg>browser=chromium</arg>
 <arg>headless=False</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2025-09-17T15:21:21.402144" elapsed="1.984176"/>
+<status status="PASS" start="2025-09-17T15:49:42.227527" elapsed="2.051194"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2025-09-17T15:21:24.113513" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/signup</msg>
-<msg time="2025-09-17T15:21:24.113773" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2025-09-17T15:49:48.212678" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/signup</msg>
+<msg time="2025-09-17T15:49:48.212884" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>http://localhost:3000/signup</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2025-09-17T15:21:23.386500" elapsed="0.727542"/>
+<status status="PASS" start="2025-09-17T15:49:44.278904" elapsed="3.934302"/>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
-<msg time="2025-09-17T15:21:24.153590" level="INFO">Waited for Element with selector xpath=//h1 at state visible</msg>
-<arg>xpath=//h1</arg>
+<msg time="2025-09-17T15:49:48.233292" level="INFO">Waited for Element with selector css=h1 at state visible</msg>
+<arg>css=h1</arg>
 <arg>visible</arg>
 <arg>timeout=5s</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<status status="PASS" start="2025-09-17T15:21:24.114530" elapsed="0.039400"/>
+<status status="PASS" start="2025-09-17T15:49:48.213738" elapsed="0.019664"/>
 </kw>
 <kw name="Get Text" owner="Browser">
-<msg time="2025-09-17T15:21:24.166855" level="INFO">Text: 'Faça seu cadastro'</msg>
-<arg>xpath=//h1</arg>
+<msg time="2025-09-17T15:49:48.245119" level="INFO">Text: 'Faça seu cadastro'</msg>
+<arg>css=h1</arg>
 <arg>==</arg>
 <arg>Faça seu cadastro</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2025-09-17T15:21:24.154236" elapsed="0.012705"/>
+<status status="PASS" start="2025-09-17T15:49:48.233582" elapsed="0.011621"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-09-17T15:49:48.245711" level="INFO">Fills the text 'Fernando Papito' in the given field.</msg>
+<arg>id=name</arg>
+<arg>Fernando Papito</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-17T15:49:48.245391" elapsed="0.008681"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-09-17T15:49:48.254549" level="INFO">Fills the text 'papito@hotmail.com' in the given field.</msg>
+<arg>id=email</arg>
+<arg>papito@hotmail.com</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-17T15:49:48.254251" elapsed="0.005199"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-09-17T15:49:48.259901" level="INFO">Fills the text 'pwd123' in the given field.</msg>
+<arg>id=password</arg>
+<arg>pwd123</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-17T15:49:48.259594" elapsed="0.004725"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-17T15:49:48.264716" level="INFO">Clicks the element 'id=buttonSignup'.</msg>
+<arg>id=buttonSignup</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-17T15:49:48.264477" elapsed="0.042764"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-09-17T15:21:34.168078" level="INFO">Slept 10 seconds.</msg>
-<arg>10s</arg>
+<msg time="2025-09-17T15:49:53.308025" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-09-17T15:21:24.167117" elapsed="10.001407"/>
+<status status="PASS" start="2025-09-17T15:49:48.307434" elapsed="5.001061"/>
 </kw>
-<msg time="2025-09-17T15:21:34.188955" level="INFO">Switching context to context=0f397133-0ba1-462e-8519-e36205fc2959 in CURRENT</msg>
-<msg time="2025-09-17T15:21:34.201594" level="INFO">Successfully changed active context: context=0f397133-0ba1-462e-8519-e36205fc2959</msg>
-<msg time="2025-09-17T15:21:34.230402" level="INFO">Successfully closed Context</msg>
-<doc>Este teste verifica a página de cadastro antes de preencher o formulário.</doc>
-<status status="PASS" start="2025-09-17T15:21:21.401634" elapsed="12.767743"/>
+<msg time="2025-09-17T15:49:53.326844" level="INFO">Switching context to context=69412236-7635-4b5e-b579-78596df03cbf in CURRENT</msg>
+<msg time="2025-09-17T15:49:53.338948" level="INFO">Successfully changed active context: context=69412236-7635-4b5e-b579-78596df03cbf</msg>
+<msg time="2025-09-17T15:49:53.378059" level="INFO">Successfully closed Context</msg>
+<doc>Este teste preenche e submete o formulário de cadastro.</doc>
+<status status="PASS" start="2025-09-17T15:49:42.227015" elapsed="11.082346"/>
 </test>
 <doc>Cenários de testes do cadastro de usuários.</doc>
-<status status="PASS" start="2025-09-17T15:21:21.321843" elapsed="12.908958"/>
+<status status="PASS" start="2025-09-17T15:49:42.136180" elapsed="11.242337"/>
 </suite>
 <statistics>
 <total>

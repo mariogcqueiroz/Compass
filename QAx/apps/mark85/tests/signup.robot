@@ -4,18 +4,23 @@ Library             Browser
 
 *** Test Cases ***
 Deve poder cadastrar um novo usuário
-    [Documentation]    Este teste verifica a página de cadastro antes de preencher o formulário.
+    [Documentation]    Este teste preenche e submete o formulário de cadastro.
 
-    # 1. Inicia a sessão do navegador
+    # 1. Setup: Inicia o navegador e acessa a página de cadastro
     New Browser         browser=chromium    headless=False
-
-    # 2. Acessa a página de cadastro da aplicação
     New Page            http://localhost:3000/signup
 
-    # 3. Checkpoint para garantir que estamos na página correta
-    # Aguarda o título H1 estar visível e depois valida o seu texto.
-    Wait For Elements State    xpath=//h1    visible    timeout=5s
-    Get Text                   xpath=//h1    ==         Faça seu cadastro
+    # 2. Checkpoint: Garante que estamos na página correta
+    Wait For Elements State    css=h1    visible    timeout=5s
+    Get Text                   css=h1    ==         Faça seu cadastro
+
+    # 3. Action: Preenche os campos do formulário
+    Fill Text           id=name        Fernando Papito
+    Fill Text           id=email       papito@hotmail.com
+    Fill Text           id=password    pwd123
+
+    # 4. Action: Clica no botão para submeter o formulário
+    Click               id=buttonSignup
 
     # Pausa temporária para observação visual do resultado
-    Sleep               3s
+    Sleep               5s
