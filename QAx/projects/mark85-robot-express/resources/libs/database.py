@@ -1,5 +1,6 @@
 from robot.api.deco import keyword
 from pymongo import MongoClient
+import bcrypt
 
 client = MongoClient('mongodb+srv://qa:xperience@cluster0.htf13qo.mongodb.net/markdb?retryWrites=true&w=majority&appName=Cluster0')
 db = client['markdb']
@@ -12,10 +13,11 @@ def remove_user(email):
 
 @keyword('Insert user from database')
 def insert_user(name, email, password):
+    hash_pass = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(8))
     doc = {
         'name': name,
         'email': email,
-        'password': password
+        'password': hash_pass
     }
     users = db['users']
     users.insert_one(doc)

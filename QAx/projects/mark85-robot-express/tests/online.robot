@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    On line
 Library          Browser
-Resource    ../resources/base.robot
+Resource    ../resources/base.resource
 
 *** Test Cases ***
 O web app deve estar online
