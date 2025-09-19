@@ -5,59 +5,72 @@ Resource    ../resources/base.resource
 Test Setup         Start Session
 *** Test Cases ***
 Deve poder cadastrar um novo usuário
-    [Documentation]    Este teste preenche e submete o formulário de cadastro.
-    ${name}=    Set Variable    Mario 
-    ${email}=    Set Variable   mg@gmail.com
-    ${password}=   Set Variable  012345
+    ${user}    Create Dictionary
+    ...    name=Mario
+    ...    email=Mario@gmail.com
+    ...    password=123456
 
-    Remove user from database    ${email}
-    Go to Signup Page
-    Submit Signup Form    ${name}    ${email}    ${password}
-    Notice Should Be    Boas vindas ao Mark85, o seu gerenciador de tarefas.  
+    Remove user from database    ${user}[email]
 
-Não deve permitir cadastro com email já utilizado
-    [Documentation]    Este teste tenta cadastrar um usuário com um email já existente.
-    ${name}=    Set Variable    Mario 
-    ${email}=    Set Variable   mg@gmail.com
-    ${password}=   Set Variable  012345
-    Remove user from database    ${email}
-    Insert user from database    ${name}    ${email}    ${password}
-    Go to Signup Page
-    Submit Signup Form    ${name}    ${email}    ${password}
-    Notice Should Be  Oops! Já existe uma conta com o e-mail informado.
+    Go to signup page
+    Submit signup form    ${user}
+    Notice should be    Boas vindas ao Mark85, o seu gerenciador de tarefas.
+
+Não deve permitir o cadastro com email duplicado
+    [Tags]    dup
+
+    ${user}    Create Dictionary
+    ...    name=Papito Fernando
+    ...    email=fernando@gmail.com
+    ...    password=123456
+
+    Remove user from database    ${user}[email]
+    Insert user from database    ${user}
+
+    Go to signup page
+    Submit signup form    ${user}
+    Notice should be    Oops! Já existe uma conta com o e-mail informado.
 
 Campos obrigatórios
-    [Tags]  required
-    [Documentation]    Este teste tenta cadastrar um usuário sem preencher os campos obrigatórios.
-    Go to Signup Page
-    Submit Signup Form    ${EMPTY}    ${EMPTY}    ${EMPTY}
-    Alert Should Be    Informe seu nome completo
-    Alert Should Be    Informe seu e-email
-    Alert Should Be    Informe uma senha com pelo menos 6 digitos
+    [Tags]    required
 
-Não deve permitir cadastro com email inválido
-    [Tags]  email
-    [Documentation]    Este teste tenta cadastrar um usuário com um email inválido.
-    ${name}=    Set Variable    Mario 
-    ${email}=    Set Variable   mgmail.com
-    ${password}=   Set Variable  012345
-    Go to Signup Page
-    Submit Signup Form    ${name}    ${email}    ${password}
-    Alert Should Be    Digite um e-mail válido
+    ${user}    Create Dictionary
+    ...    name=${EMPTY}
+    ...    email=${EMPTY}
+    ...    password=${EMPTY}
+
+    Go to signup page
+    Submit signup form    ${user}
+
+    Alert should be    Informe seu nome completo
+    Alert should be    Informe seu e-email
+    Alert should be    Informe uma senha com pelo menos 6 digitos
+
+Não deve cadastrar com email incorreto
+    [Tags]    inv_email
+
+    ${user}    Create Dictionary
+    ...    name=Charles Xavier
+    ...    email=xavier.com.br
+    ...    password=123456
+
+    Go to signup page
+    Submit signup form    ${user}
+    Alert should be    Digite um e-mail válido
 
 Não deve cadastrar com senha muito curta
-    [Tags]    short_pass
+    [Tags]    temp
 
-    # A navegação é feita apenas uma vez, ANTES do loop.
-    Go to signup page
+    @{password_list}    Create List     1    12    123    1234    12345
 
-    @{password_list}=    Create List     1    12    123    1234    12345
+    FOR    ${password}    IN    @{password_list}
+        ${user}    Create Dictionary
+        ...    name=Mario
+        ...    email=papito@msn.com
+        ...    password=${password}
 
-    FOR    ${short_pass}    IN    @{password_list}
-        # Criamos as variáveis necessárias para a keyword
-        ${name}=    Set Variable    Mario 
-        ${email}=   Set Variable    mario@gmail.com 
-        Submit Signup Form    ${name}    ${email}    ${short_pass}
+        Go to signup page
+        Submit signup form    ${user}
 
-        Alert should be       Informe uma senha com pelo menos 6 digitos
+        Alert should be    Informe uma senha com pelo menos 6 digitos
     END

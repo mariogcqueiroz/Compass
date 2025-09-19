@@ -20,3 +20,6 @@ User should be logged in
 
     Wait For Elements State    ${welcome_element}    visible    timeout=5s
     Get Text                   ${welcome_element}    ==         ${expected_message}
+
+Go to task form
+    Click    css=.button-add

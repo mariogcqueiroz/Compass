@@ -9,35 +9,29 @@ Test Teardown       Take Screenshot
 
 *** Test Cases ***
 Deve poder logar com um usuário pré-cadastrado
-    # --- Massa de Teste ---
-    ${name}=        Set Variable    mario g
-    ${email}=       Set Variable    marioqa@gmail.com
-    ${password}=    Set Variable    abcdef
-    
-    # --- Preparação (Given) ---
-    Remove user from database    ${email}
-    Insert user from database    ${name}    ${email}    ${password}
-    
-    # --- Ação (When) ---
-    Submit login form           ${email}    ${password}
-    
-    # --- Validação (Then) ---
-    User should be logged in     ${name}
 
+    ${user}    Create Dictionary
+    ...    name=Mario
+    ...    email=mario@gmail.com
+    ...    password=123456
+    
+    Remove user from database    ${user}[email]
+    Insert user from database    ${user}
+    
+    Submit login form           ${user}
+    User should be logged in    ${user}[name]
 
 Não deve logar com senha inválida
-    # --- Massa de Teste ---
-    ${name}=              Set Variable    Steve Woz
-    ${email}=             Set Variable    woz@apple.com
-    ${correct_password}=  Set Variable    123456
-    ${invalid_password}=  Set Variable    abc123
+
+    ${user}    Create Dictionary
+    ...    name=Steve Woz
+    ...    email=woz@apple.com
+    ...    password=123456
     
-    # --- Preparação (Given) ---
-    Remove user from database    ${email}
-    Insert user from database    ${name}    ${email}    ${correct_password}
+    Remove user from database    ${user}[email]
+    Insert user from database    ${user}
+
+    Set To Dictionary    ${user}        password=abc123
     
-    # --- Ação (When) ---
-    Submit login form            ${email}    ${invalid_password}
-    
-    # --- Validação (Then) ---
-    Notice should be             Ocorreu um erro ao fazer login, verifique suas credenciais.
+    Submit login form       ${user}
+    Notice should be        Ocorreu um erro ao fazer login, verifique suas credenciais.
