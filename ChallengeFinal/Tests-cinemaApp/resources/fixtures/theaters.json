@@ -5,8 +5,9 @@
     "type": "VIP"
   },
   "updated_theater": {
-    "name": "Sala Cinemark Prime - Renovada",
-    "capacity": 75
+    "name": "Sala kinoplex",
+    "capacity": 75,
+    "type":"standard"
   },
   "conflicting_theater": {
     "name": "Sala Cinemark Prime",
