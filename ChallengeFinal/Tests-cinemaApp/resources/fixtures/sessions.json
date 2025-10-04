@@ -1,0 +1,19 @@
+{
+  "valid_session": {
+    "datetime": "2026-01-01T20:00:00.000Z",
+    "fullPrice": 55.0,
+    "halfPrice": 27.5
+  },
+  "conflicting_session": {
+    "datetime": "2026-01-01T20:30:00.000Z",
+    "fullPrice": 60.0,
+    "halfPrice": 30.0
+  },
+  "updated_session": {
+    "datetime": "2026-01-01T21:00:00.000Z",
+    "fullPrice": 58.0
+  },
+  "invalid_session": {
+    "fullPrice": -10
+  }
+}

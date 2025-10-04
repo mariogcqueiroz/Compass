@@ -1,0 +1,27 @@
+{
+  "valid_movie": {
+    "title": "Duna: Parte 2",
+    "synopsis": "Paul Atreides se une a Chani e aos Fremen em uma guerra de vingança contra os conspiradores que destruíram sua família.",
+    "director": "Denis Villeneuve",
+    "genres": ["Ficção Científica", "Aventura"],
+    "duration": 166,
+    "classification": "14",
+    "poster": "url_do_poster.jpg",
+    "releaseDate": "2024-02-29T00:00:00.000Z"
+},
+"invalid_movie": {
+  "title": "13",
+  "synopsis": "",
+  "director": "Denis Villeneuve",
+  "genres": ["Ficção Científica", "Aventura"],
+  "duration": "abc",
+  "classification": "14",
+  "poster": "url_do_poster.jpg",
+  "releaseDate": "2024-02-29T00:00:00.000Z"
+},
+"updated_movie": {
+    "title": "Duna: Parte Dois (Edição Estendida)",
+    "synopsis": "A jornada mítica de Paul Atreides continua enquanto ele se une a Chani e aos Fremen.",
+    "duration": 180
+  }
+}

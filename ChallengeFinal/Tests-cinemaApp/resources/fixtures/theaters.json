@@ -1,0 +1,20 @@
+{
+  "valid_theater": {
+    "name": "Sala Cinemark Prime",
+    "capacity": 80,
+    "type": "VIP"
+  },
+  "updated_theater": {
+    "name": "Sala kinoplex",
+    "capacity": 75,
+    "type":"standard"
+  },
+  "conflicting_theater": {
+    "name": "Sala Cinemark Prime",
+    "capacity": 100,
+    "type": "IMAX"
+  },
+  "invalid_theater": {
+    "name": ""
+  }
+}
