@@ -1,0 +1,19 @@
+{
+  "valid_theater": {
+    "name": "Sala Cinemark Prime",
+    "capacity": 80,
+    "type": "VIP"
+  },
+  "updated_theater": {
+    "name": "Sala Cinemark Prime - Renovada",
+    "capacity": 75
+  },
+  "conflicting_theater": {
+    "name": "Sala Cinemark Prime",
+    "capacity": 100,
+    "type": "IMAX"
+  },
+  "invalid_theater": {
+    "name": ""
+  }
+}

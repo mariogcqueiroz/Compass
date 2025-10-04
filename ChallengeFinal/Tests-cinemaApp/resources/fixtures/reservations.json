@@ -1,0 +1,29 @@
+{
+  "theater_for_reservation": {
+    "name": "Sala IMAX Reserva",
+    "capacity": 150,
+    "type": "IMAX"
+  },
+  "session_for_reservation": {
+    "datetime": "2025-12-31T20:00:00.000Z",
+    "fullPrice": 50.0,
+    "halfPrice": 25.0
+  },
+  "valid_reservation_payload": {
+    "seats": [
+      { "row": "F", "number": 7, "type": "full" },
+      { "row": "F", "number": 8, "type": "full" }
+    ],
+    "paymentMethod": "credit_card"
+  },
+  "invalid_reservation_payload": {
+    "seats": []
+  },
+  "update_reservation_payload": {
+      "status": "confirmed",
+      "paymentStatus": "paid"
+  }, 
+  "invalid_update_reservation_payload": {
+      "status": "invalid_status"
+  }
+}

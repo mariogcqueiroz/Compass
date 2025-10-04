@@ -1,0 +1,68 @@
+{
+  "admin_user": {
+    "name": "Admin Movies Test",
+    "email": "admin.movies@gmail.com",
+    "password": "123456",
+    "role": "admin"
+  },
+  "common_user": {
+    "name": "Common Movies Test",
+    "email": "common.movies@gmail.com",
+    "password": "123456",
+    "role": "user"
+  },
+  "new_user": {
+    "name": "New User Auth",
+    "email": "new.auth@test.com",
+    "password": "password123",
+    "role": "user"
+  },
+  "existing_user": {
+    "name": "Existing User Auth",
+    "email": "existing.auth@test.com",
+    "password": "password123",
+    "role": "user"
+  },
+  "invalid_email_user": {
+    "name": "Invalid Email",
+    "email": "invalid-email.com",
+    "password": "password123"
+  },
+  "short_password_user": {
+    "name": "Short Password",
+    "email": "shortpass@test.com",
+    "password": "123"
+  },
+  "update_payload": {
+    "name": "Existing User Updated Name",
+    "currentPassword": "password123",
+    "newPassword": "newPassword456"
+  },
+  "update_wrong_pass_payload": {
+    "name": "Existing User Updated Name",
+    "currentPassword": "wrongPassword",
+    "newPassword": "newPassword456"
+  },
+  "user_to_be_managed": {
+    "name": "User To Manage",
+    "email": "managed.user@test.com",
+    "password": "userpassword",
+    "role": "user"
+  },
+  "another_user_for_conflict": {
+    "name": "Another User",
+    "email": "another.user@test.com",
+    "password": "userpassword",
+    "role": "user"
+  },
+  "user_update_valid_payload": {
+    "name": "User Managed Updated Name",
+    "role": "admin"
+  },
+  "user_update_invalid_payload": {
+    "email": "invalid-email-format"
+  },
+  "user_update_conflict_payload": {
+    "email": "another.user@test.com"
+  }
+}
