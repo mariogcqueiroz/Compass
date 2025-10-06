@@ -2,7 +2,7 @@ from robot.api.deco import keyword
 from pymongo import MongoClient
 import bcrypt
 
-# --- ATENÇÃO: Substitua pela connection string do seu banco de dados do Cinema App ---
+
 client = MongoClient('mongodb+srv://mario:12345@cluster0.hmqbxwo.mongodb.net/cinema-app?retryWrites=true&w=majority&appName=Cluster0')
 db = client['cinema-app']
 
@@ -31,7 +31,6 @@ def insert_cinema_user(user_data):
     """
     users_collection = db['users']
 
-    # O backend usa bcryptjs, que é compatível com a implementação do bcrypt em Python.
     password_bytes = user_data['password'].encode('utf-8')
     hashed_password = bcrypt.hashpw(password_bytes, bcrypt.gensalt())
 
@@ -45,6 +44,29 @@ def insert_cinema_user(user_data):
     users_collection.insert_one(doc)
     print(f"Usuário '{user_data['email']}' inserido no banco.")
 
+# ... (código existente, como clean_cinema_user, etc.) ...
+
+@keyword('Clean Theater By Name')
+def clean_theater_by_name(theater_name):
+    """
+    Remove um cinema pelo nome e todas as sessoes associadas a ele.
+    """
+    theaters_collection = db['theaters']
+    sessions_collection = db['sessions']
+
+    # Encontra o cinema pelo nome para obter seu ID
+    theater = theaters_collection.find_one({'name': theater_name})
+
+    if theater:
+        theater_id = theater['_id']
+        # 1. Deleta todas as sessoes que usam este cinema
+        deleted_sessions = sessions_collection.delete_many({'theater': theater_id})
+        print(f"{deleted_sessions.deleted_count} sessoes associadas ao cinema '{theater_name}' foram removidas.")
+        
+        # 2. Deleta o próprio cinema
+        theaters_collection.delete_one({'name': theater_name})
+        print(f"Cinema '{theater_name}' foi removido.")
+        
 @keyword('Get User ID By Email')
 def get_user_id_by_email(user_email):
     """

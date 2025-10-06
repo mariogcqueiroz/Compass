@@ -24,6 +24,7 @@ Setup Reservations API Tests
 
     # --- Cinema (Theater) ---
     ${theater_payload}  Get Fixture    reservations.json    theater_for_reservation
+    Clean Theater By Name    ${theater_payload}[name]
     ${res_theater}      Create Theater    ${theater_payload}    ${admin_token}
     Set Suite Variable    ${THEATER_ID}    ${res_theater.json()}[data][_id]
 

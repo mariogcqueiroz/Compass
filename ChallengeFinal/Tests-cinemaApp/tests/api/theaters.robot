@@ -17,6 +17,10 @@ Setup Theaters API Tests
     ${common_token}   Login User    ${common}
     Set Suite Variable    ${ADMIN_TOKEN}          ${admin_token}
     Set Suite Variable    ${COMMON_USER_TOKEN}    ${common_token}
+    ${valid_theater}    Get Fixture    theaters.json    valid_theater
+    ${updated_theater}  Get Fixture    theaters.json    updated_theater
+    Clean Theater By Name    ${valid_theater}[name]
+    Clean Theater By Name    ${updated_theater}[name]
 
 Teardown Theaters API Tests
     [Documentation]    Limpa os usuários criados para a suíte de testes.

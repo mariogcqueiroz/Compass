@@ -144,6 +144,7 @@ US-AUTH-TC30 Deletar um usuário com reservas ativas
 
 
     ${theater_payload}  Get Fixture    reservations.json    theater_for_reservation
+    Clean Theater By Name    ${theater_payload}[name]
     ${res_theater}      Create Theater    ${theater_payload}    ${ADMIN_TOKEN}
     ${theater_id}       Set Variable    ${res_theater.json()}[data][_id]
 
