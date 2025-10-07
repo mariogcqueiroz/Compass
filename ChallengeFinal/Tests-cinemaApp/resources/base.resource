@@ -13,6 +13,10 @@ Resource         api/users.resource
 Resource         api/theaters.resource
 Resource         api/sessions.resource
 Resource         api/reservations.resource
+Resource         front/authPage.resource
+Resource         components/Alert.resource
+Resource         components/Header.resource
+Resource         components/Notice.resource
 
 *** Keywords ***
 Start Session

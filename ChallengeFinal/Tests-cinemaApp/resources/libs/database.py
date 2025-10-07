@@ -44,7 +44,15 @@ def insert_cinema_user(user_data):
     users_collection.insert_one(doc)
     print(f"Usuário '{user_data['email']}' inserido no banco.")
 
-# ... (código existente, como clean_cinema_user, etc.) ...
+@keyword('Remove Cinema User')
+def remove_cinema_user(user_data):
+    """
+    remove novo usuário no banco de dados.
+    """
+    users= db['users']
+    email = user_data['email']
+    users.delete_many({'email': email})
+    print('removing user by ' + email)
 
 @keyword('Clean Theater By Name')
 def clean_theater_by_name(theater_name):
