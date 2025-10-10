@@ -8,7 +8,7 @@ Test Teardown       Take Screenshot
 
 *** Test Cases ***
 
-Deve poder cadastrar um novo usuário
+FE-AUTH-TC01 Deve poder cadastrar um novo usuário
     ${user}    Create Dictionary
     ...    name=Mario
     ...    email=mario@gmail.com
@@ -19,7 +19,7 @@ Deve poder cadastrar um novo usuário
     Go to signup page
     Submit signup form    ${user}
     Notice should be    Conta criada com sucesso!
-Deve poder logar com um usuário pré-cadastrado
+FE-AUTH-TC02 Deve poder logar com um usuário pré-cadastrado
 
     ${user}    Create Dictionary
     ...    name=Mario
@@ -53,7 +53,7 @@ Deve poder logar com um usuário pré-cadastrado
 
 
 
-Não deve permitir o cadastro com email duplicado
+FE-AUTH-TC03 Não deve permitir o cadastro com email duplicado
     [Tags]    dup
 
     ${user}    Create Dictionary
@@ -68,7 +68,7 @@ Não deve permitir o cadastro com email duplicado
     Submit signup form    ${user}
     Notice should be    User already exists
 
-Campos obrigatórios
+FE-AUTH-TC04 Campos obrigatórios
     [Tags]    required
 
     ${user}    Create Dictionary
@@ -81,7 +81,7 @@ Campos obrigatórios
 
     Field validation message should be  css=input[id=name]    Preencha este campo.
 
-Não deve cadastrar com email incorreto
+FE-AUTH-TC05 Não deve cadastrar com email incorreto
     [Tags]    inv_email
 
     ${user}    Create Dictionary
