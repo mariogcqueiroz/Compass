@@ -55,7 +55,7 @@ US-AUTH-TC08 Acessar o perfil do usuário sem token nos headers
 
 US-AUTH-TC09 Buscar um usuário com token de autenticação inválido
     ${resp}    Get My Profile    "Bearer token-invalido-123"
-    Should Be Equal As Strings    ${resp.status_code}    409  
+    Should Be Equal As Strings    ${resp.status_code}    403  
 
 US-AUTH-TC10 [Happy Path] Atualizar dados do usuário com dados válidos
     ${user}           Get Fixture    users.json    existing_user

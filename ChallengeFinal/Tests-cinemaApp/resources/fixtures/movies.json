@@ -23,5 +23,16 @@
     "title": "Duna: Parte Dois (Edição Estendida)",
     "synopsis": "A jornada mítica de Paul Atreides continua enquanto ele se une a Chani e aos Fremen.",
     "duration": 180
-  }
+  },
+  "valid_movie2": {
+    "title": "Avengers: Ultimato",
+    "synopsis": "Após os eventos devastadores de Vingadores: Guerra Infinita, o universo está em ruínas. Com a ajuda dos aliados restantes, os Vingadores se reúnem mais uma vez para desfazer as ações de Thanos e restaurar a ordem no universo.",
+    "director": "Anthony e Joe Russo",
+    "genres": ["Ação"],
+    "duration": 181,
+    "classification": "14",
+    "poster": "url_do_poster.jpg",
+    "releaseDate": "2023-02-29T00:00:00.000Z"
+}
+
 }

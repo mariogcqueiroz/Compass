@@ -38,7 +38,7 @@ def insert_cinema_user(user_data):
         'name': user_data['name'],
         'email': user_data['email'],
         'password': hashed_password,
-        'role': user_data.get('role', 'user') # Adiciona role, com 'user' como padrão
+        'role': user_data.get('role', 'user') 
     }
 
     users_collection.insert_one(doc)
